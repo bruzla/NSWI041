@@ -29,16 +29,19 @@ rectangle "Car sharing app" {
 
 ' Relationships for User
 borrower --> selectingCar
-borrower --> bookingSelectedCar
-borrower --> automaticInsurance
-borrower --> lenderBorrowerCommunication
-borrower --> carDetail
+'borrower --> bookingSelectedCar
+'borrower --> automaticInsurance
+'borrower --> lenderBorrowerCommunication
+'borrower --> carDetail
 borrower --> newOffersNotification
 
+
 ' relations between use cases
-bookingSelectedCar .left.> carDetail : <<extend>>
-carDetail .> selectingCar : <<extend>>
-automaticInsurance ..> bookingSelectedCar : <<include>>
+bookingSelectedCar .up.> carDetail : <<extend>>
+carDetail .up.> selectingCar : <<extend>>
+automaticInsurance .up.> bookingSelectedCar : <<include>>
+carDetail .up.> newOffersNotification : <<extend>>
+
 
 actor "Car owner" as carOwner
 ' Relationships for Admin
