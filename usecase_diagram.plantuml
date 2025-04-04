@@ -1,0 +1,56 @@
+@startuml
+'left to right direction
+' Define the actors
+actor Borrower as borrower
+
+' Define the system boundary
+rectangle "Car sharing app" {
+' UC-1
+    (Vehicle listing) as vehicleListing [[https://github.com/bruzla/NSWI041/issues/12]]
+' UC-2
+    (Selecting a car) as selectingCar [[https://github.com/bruzla/NSWI041/issues/13]]
+' UC-3
+    (Booking a selected car) as bookingSelectedCar [[https://github.com/bruzla/NSWI041/issues/14]]
+' UC-4
+    (Car details view) as carDetail [[https://github.com/bruzla/NSWI041/issues/15]]
+' UC-6
+    (Automatic insurance inclusion) as automaticInsurance [[https://github.com/bruzla/NSWI041/issues/17]]
+' UC-5
+    (Reviews of a possible borrower) as borrowerReviews [[https://github.com/bruzla/NSWI041/issues/16]]
+' UC-7
+    (Direct lender-borrower communication) as lenderBorrowerCommunication [[https://github.com/bruzla/NSWI041/issues/18]]
+' UC-8
+    (Violation Alert and Response) as violationAlert [[https://github.com/bruzla/NSWI041/issues/19]]
+' UC-9
+    (Notification of borrower of new offers) as newOffersNotification [[https://github.com/bruzla/NSWI041/issues/20]]
+' UC-10
+    (Define Car Usage Rules) as defineCarUsageRules [[https://github.com/bruzla/NSWI041/issues/22]]
+}
+
+' Relationships for User
+borrower --> selectingCar
+borrower --> bookingSelectedCar
+borrower --> automaticInsurance
+borrower --> lenderBorrowerCommunication
+borrower --> carDetail
+borrower --> newOffersNotification
+
+' relations between use cases
+bookingSelectedCar .> carDetail : <<extend>>
+carDetail .> selectingCar : <<extend>>
+automaticInsurance ...> bookingSelectedCar : <<include>>
+
+actor "Car owner" as carOwner
+' Relationships for Admin
+carOwner --> vehicleListing
+carOwner --> lenderBorrowerCommunication
+carOwner --> borrowerReviews
+carOwner --> defineCarUsageRules
+carOwner --> violationAlert
+
+
+' Extends and Includes (optional)
+'selectingCar .> vehicleListing : extends
+
+'(Login) .> (Register) : includes
+@enduml
