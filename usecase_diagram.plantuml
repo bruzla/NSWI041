@@ -31,7 +31,7 @@ rectangle "Car sharing app" {
 borrower --> selectingCar
 'borrower --> bookingSelectedCar
 'borrower --> automaticInsurance
-'borrower --> lenderBorrowerCommunication
+borrower --> lenderBorrowerCommunication
 'borrower --> carDetail
 borrower --> newOffersNotification
 
