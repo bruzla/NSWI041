@@ -26,3 +26,7 @@ Lenders do not need to worry about the trustworthiness of borrowers because the 
 
 #### Borrower
 Borrowers do not need to worry about the trustworthiness of lenders. They receive detailed information about the car's condition, whether it is old and cheap or new and expensive, allowing them to make informed decisions.
+
+## Architecture
+### Usecases
+![diagram](./usecase_diagram.svg)
