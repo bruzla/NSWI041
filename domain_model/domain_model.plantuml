@@ -73,7 +73,7 @@ class Booking {
     status
 }
 
-'---------- Associations 
+'---------- Associations
 
 'Lender --|> User
 'Borrower --|> User
