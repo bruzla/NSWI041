@@ -70,6 +70,7 @@ class Preferences {
 class Booking {
     from
     to
+    price
     status
 }
 
@@ -85,6 +86,7 @@ Lender "1" --> "0..*" Vehicle : owns
 
 Borrower "1" --> "0..1" Booking : makes
 Borrower "1" --> "0..*" Review : has
+Booking "1" --right> "0..1" Review : has
 Borrower "1" --> "0..1" Preferences : has
 
 Vehicle "1" --> "0..*" Booking : has
