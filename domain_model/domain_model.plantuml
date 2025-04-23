@@ -1,0 +1,96 @@
+@startuml
+
+'---------- Actors
+
+class User {
+    name
+    age
+    phone number
+    email
+    payment information
+}
+
+class Lender {
+
+}
+
+class Borrower {
+    has valid driver's licence
+    rating
+}
+
+'---------- Vehicle
+
+class Photo
+
+class Vehicle {
+    make
+    model
+    year of making
+    photo : Photo[0..*]
+    condition
+}
+
+class "Availability Schedule" as AvailabilitySchedule {
+    time from
+    time to
+}
+
+class "Rental Terms" as RentalTerms {
+    price
+    pickup location
+    return location
+    mileage limit
+}
+
+class "Geographic Boundary" as GeographicBoundary {
+    type
+    value
+}
+
+class "Usage Restrictions" as UsageRestriction {
+    geographic boundary : GeographicBoundary[0..*]
+    prohibited activity : String[0..1]
+}
+
+'---------- Other
+
+class Review {
+    rating
+    comment
+}
+
+class Preferences {
+    price
+    condition
+    make
+    model
+}
+
+class Booking {
+    from
+    to
+    status
+}
+
+'---------- Associations 
+
+'Lender --|> User
+'Borrower --|> User
+
+User <|-- Lender
+User <|-- Borrower
+
+Lender "1" --> "0..*" Vehicle : owns
+
+Borrower "1" --> "0..1" Booking : makes
+Borrower "1" --> "0..*" Review : has
+Borrower "1" --> "0..1" Preferences : has
+
+Vehicle "1" --> "0..*" Booking : has
+Vehicle "1" --> "1" RentalTerms : has
+Vehicle "1" --> "1" UsageRestriction : has
+Vehicle "1" --> "0..*" AvailabilitySchedule : has
+
+
+@enduml
