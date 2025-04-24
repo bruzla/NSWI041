@@ -29,4 +29,4 @@ Borrowers do not need to worry about the trustworthiness of lenders. They receiv
 
 ## Architecture
 ### Usecases
-![diagram](./usecase_diagram.svg)
+![diagram](./usecase_diagram/usecase_diagram.svg)
