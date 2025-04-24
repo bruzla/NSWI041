@@ -24,7 +24,7 @@ rectangle "Car sharing app" {
 ' UC-9
     (Notification of borrower of new offers) as newOffersNotification [[https://github.com/bruzla/NSWI041/issues/20]]
 ' UC-10
-    (Returning of the vehicle and closing of the booking) as finishBooking [[https://github.com/bruzla/NSWI041/issues/22]]
+    (Returning of the vehicle and closing of the booking) as finishBooking [[https://github.com/bruzla/NSWI041/issues/25]]
 ' UC-011
     (Writing a borrower review) as addReview [[https://github.com/bruzla/NSWI041/issues/23]]
 }
