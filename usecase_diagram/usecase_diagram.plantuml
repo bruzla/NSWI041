@@ -16,15 +16,17 @@ rectangle "Car sharing app" {
 ' UC-6
     (Automatic insurance inclusion) as automaticInsurance [[https://github.com/bruzla/NSWI041/issues/17]]
 ' UC-5
-    (Reviews of a possible borrower) as borrowerReviews [[https://github.com/bruzla/NSWI041/issues/16]]
+    (Booking confirmation) as bookingConfirmation [[https://github.com/bruzla/NSWI041/issues/16]]
 ' UC-7
     (Direct lender-borrower communication) as lenderBorrowerCommunication [[https://github.com/bruzla/NSWI041/issues/18]]
 ' UC-8
-    (Violation Alert and Response) as violationAlert [[https://github.com/bruzla/NSWI041/issues/19]]
+    (Violation alert and response) as violationAlert [[https://github.com/bruzla/NSWI041/issues/19]]
 ' UC-9
     (Notification of borrower of new offers) as newOffersNotification [[https://github.com/bruzla/NSWI041/issues/20]]
 ' UC-10
-    (Define Car Usage Rules) as defineCarUsageRules [[https://github.com/bruzla/NSWI041/issues/22]]
+    (Returning of the vehicle and closing of the booking) as finishBooking [[https://github.com/bruzla/NSWI041/issues/22]]
+' UC-011
+    (Writing a borrower review) as addReview [[https://github.com/bruzla/NSWI041/issues/23]]
 }
 
 ' Relationships for User
@@ -34,22 +36,24 @@ borrower --> selectingCar
 borrower --> lenderBorrowerCommunication
 'borrower --> carDetail
 borrower --> newOffersNotification
-
+borrower --> finishBooking
 
 ' relations between use cases
 bookingSelectedCar .up.> carDetail : <<extend>>
 carDetail .up.> selectingCar : <<extend>>
 automaticInsurance .up.> bookingSelectedCar : <<include>>
 carDetail .up.> newOffersNotification : <<extend>>
+bookingConfirmation ....> bookingSelectedCar : <<include>>
 
 
 actor "Car owner" as carOwner
 ' Relationships for Admin
+carOwner --> finishBooking
 carOwner --> vehicleListing
 carOwner --> lenderBorrowerCommunication
-carOwner --> borrowerReviews
-carOwner --> defineCarUsageRules
+carOwner --> bookingConfirmation
 carOwner --> violationAlert
+carOwner --> addReview
 
 
 ' Extends and Includes (optional)
