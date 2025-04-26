@@ -1,6 +1,6 @@
 ![domain model](./domain_model.svg)
 
-# Clases
+# Classes
 
 ### User
 A base class for all system users.
@@ -25,7 +25,7 @@ A specialized user who rents vehicles.
 Representation of a vehicle available for rent.
 
 - Can be booked ([Booking](#booking)).
-- Defines [UsageRestrictions](#usagerestrictions)
+- Defines [Usage Restrictions](#usage-restrictions)
 - Has [Rental Terms](#rental-terms) and [Availability Schedule](#availability-schedule)
 
 ### Booking
