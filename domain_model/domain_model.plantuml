@@ -1,5 +1,8 @@
 @startuml
 
+skinparam nodesep 70
+skinparam ranksep 70
+
 '---------- Actors
 
 class User {
@@ -83,16 +86,17 @@ User <|-- Lender
 User <|-- Borrower
 
 Lender "1" --> "0..*" Vehicle : owns
+Lender "1" --> "0..*" Review : writes
 
-Borrower "1" --> "0..1" Booking : makes
-Borrower "1" --> "0..*" Review : has
-Booking "1" --right> "0..1" Review : has
-Borrower "1" --> "0..1" Preferences : has
+Borrower "1" --> "0..*" Booking : makes
+Borrower "1" --> "0..*" Review : receives
+Booking "1" --> "0..1" Review : has
+Borrower "1" --> "0..1" Preferences : sets
 
-Vehicle "1" --> "0..*" Booking : has
+Vehicle "1" --> "0..*" Booking : booked by
 Vehicle "1" --> "1" RentalTerms : has
-Vehicle "1" --> "1" UsageRestriction : has
-Vehicle "1" --> "0..*" AvailabilitySchedule : has
+Vehicle "1" --> "1" UsageRestriction : defines
+Vehicle "1" --> "0..*" AvailabilitySchedule : available_during
 
 
 @enduml
