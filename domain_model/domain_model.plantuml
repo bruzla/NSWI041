@@ -90,13 +90,13 @@ Lender "1" --> "0..*" Review : writes
 
 Borrower "1" --> "0..*" Booking : makes
 Borrower "1" --> "0..*" Review : receives
-Booking "1" --> "0..1" Review : has
+Booking "1" --> "0..1" Review : is reviewed by
 Borrower "1" --> "0..1" Preferences : sets
 
 Vehicle "1" --> "0..*" Booking : booked by
-Vehicle "1" --> "1" RentalTerms : has
+Vehicle "1" --> "1" RentalTerms : defines
 Vehicle "1" --> "1" UsageRestriction : defines
-Vehicle "1" --> "0..*" AvailabilitySchedule : available_during
+Vehicle "1" --> "0..*" AvailabilitySchedule : available during
 
 
 @enduml
