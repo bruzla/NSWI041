@@ -1,0 +1,26 @@
+@startuml
+start
+
+:User navigates to "Browse Cars";
+:System displays all available cars;
+:User clicks "Filter";
+:System shows filter criteria;
+:User sets filter values;
+:User submits filter preferences;
+:System applies filters;
+
+if (Any cars match?) then (yes)
+  :Display filtered cars;
+  stop
+else (no)
+  :Display "no results" message;
+  :Offer to broaden search criteria;
+  if (User chooses to broaden?) then (yes)
+    -[#blue]-> :System shows filter criteria;
+    --> continue
+  else (no)
+    stop
+  endif
+endif
+
+@enduml

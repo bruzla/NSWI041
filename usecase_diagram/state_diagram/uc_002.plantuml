@@ -1,0 +1,48 @@
+@startuml
+[*] --> ViewingAll
+
+note right of ViewingAll
+  All cars displayed
+end note
+
+ViewingAll --> FilterOpen : Click "Filter"
+
+note right of FilterOpen
+  Filter panel visible
+end note
+
+FilterOpen --> SettingValues : Change values
+
+note right of SettingValues
+  User sets filter values
+end note
+
+SettingValues --> ReadyToApply : Values set
+
+note right of ReadyToApply
+  Ready to apply filters
+end note
+
+ReadyToApply --> Applying : Click "Apply"
+
+note right of Applying
+  System applies filters
+end note
+
+Applying --> ShowingResults : matches > 0
+Applying --> NoResults      : matches = 0
+
+note right of ShowingResults
+  Filtered list displayed
+end note
+
+note right of NoResults
+  No-results message shown
+end note
+
+ShowingResults --> ViewingAll : Click "Reset"
+ShowingResults --> FilterOpen : Click "Filter"
+
+NoResults --> FilterOpen : Click "Broaden search"
+NoResults --> ViewingAll : Click "Clear filters"
+@enduml

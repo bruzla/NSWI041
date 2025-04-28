@@ -1,0 +1,36 @@
+@startsalt
+{^"Browse Cars"
+  ..
+  {^"Filters"
+    Price Range:
+    ..|..|..|..
+    Min Price: | "€0      "
+    Max Price: | "€1000   "
+    == | == | == | ==
+    Car Type
+    () Sedan | () SUV | () Electric | () Coupe
+    == | == | == | ==
+    Availability:
+    ..|..|..|..
+    From: | "   "
+    To: | "   "
+    == | == | == | ==
+    Location Radius
+    ( ) 5 km | ( ) 10 km | ( ) 20 km | ( ) 50 km
+    == | == | == | ==
+    Transmission:
+    ( ) Automatic | ( ) Manual
+    == | == | == | ==
+    Features:
+    [] Air Conditioning | [] Child Seat | [] Pet Friendly
+    == | == | == | ==
+    [Apply Filters] | [Reset Filters]
+  }
+  ==
+  {^"Results"
+    [Clear All Filters] | [Filters]
+      [Car 1: Model X, €50/day] | [Car 2: Model Y, €40/day]
+      [Car 3: Model Z, €60/day] | [Car 4: Model A, €55/day]
+  }
+}
+@endsalt
