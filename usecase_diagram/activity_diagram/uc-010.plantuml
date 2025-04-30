@@ -1,0 +1,46 @@
+@startuml
+!pragma useBetaStyle true
+
+start
+
+: Borrower opens booking;
+: Borrower selects "Return Vehicle";
+
+if (Create and send data about the car?) then (yes)
+ : Borrower creates car data;
+ : Car data (GPS coordinates, photos,...)]
+ : System sends car data to the car owner's account;
+else (no)
+endif
+
+
+if (Directly contact the car owner?) then (yes)
+ : Borrower directly contacts the car owner;
+else (no)
+endif
+
+: System creates notification;
+: Notification]
+: System sends notification to the car owner's account;
+
+: Car owner opens application;
+: Car owner navigates to the booking detail;
+
+if (Confirm the return of the vehicle) then (yes)
+  
+ : Car owner confirms the return;
+ 
+else (no)
+ : Car owner denies the return;
+ : System presents means of solving issues with the return;
+ while (Not all issues have been solved)
+  : System presents means of solving issues with the return;
+  : Car owner tries to handle issues outside the app;
+ endwhile (All issues solved)
+
+endif
+
+: Car owner closes the booking;
+
+stop
+@enduml
