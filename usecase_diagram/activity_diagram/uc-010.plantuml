@@ -1,6 +1,4 @@
 @startuml
-!pragma useBetaStyle true
-
 start
 
 : Borrower opens booking;
