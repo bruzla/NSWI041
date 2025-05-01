@@ -70,14 +70,6 @@ class Preferences {
     model
 }
 
-class Notification {
-text
-sender
-
-}
-
-class "Terms violation notification" as NotificationViolation{
-}
 
 class Booking {
     from
@@ -86,9 +78,6 @@ class Booking {
     status
 }
 
-class Offer{
-
-}
 
 '---------- Associations
 
@@ -96,16 +85,10 @@ class Offer{
 'Lender --|> User
 'Borrower --|> User
 
-NotificationViolation --|> Notification
 
 User <|-- Lender
 User <|-- Borrower
 
-Lender "1" --> "0..*" NotificationViolation : recives
-
-Lender "1" --> "0..*" Offer : makes
-Offer "1" --> "1" Booking : contains
-Borrower "0..*" -> "0..*" Offer : reviews
 
 Lender "1" --> "0..*" Vehicle : owns
 Lender "1" --> "0..*" Review : writes
@@ -120,7 +103,7 @@ Vehicle "1" --> "1" RentalTerms : defines
 Vehicle "1" --> "1" UsageRestriction : defines
 Vehicle "1" --> "0..*" AvailabilitySchedule : available during
 
-Offer "1" --> "1" Preferences: has set
+
 
 Borrower "1" --> "0..*" Photo : uploads
 Lender "1" --> "0..*" Photo : uploads
