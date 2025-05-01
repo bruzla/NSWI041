@@ -1,0 +1,24 @@
+@startuml
+hide empty description
+
+state "Return is initiated" as ReturnInitialization
+state "Uploading car data" as CarDataUpload
+state "Return waiting to be confirmed" as ReturnWaits
+
+state "Return confirmed" as ReturnConfirmed
+state "Booking closed" as BookingClosed
+state "Resolving issues" as ResolvingIssues
+
+
+[*] -> ReturnInitialization
+ReturnInitialization -> CarDataUpload : Borrower decides\nto upload data
+CarDataUpload -> ReturnWaits : Borrower confirmes\nthe return
+ReturnInitialization -> ReturnWaits : Borrower confirmes\nthe return
+ReturnWaits -d-> ReturnConfirmed : Owner confirmes\nthe return
+ReturnWaits -> ResolvingIssues : Owner denies\nthe return
+ResolvingIssues -> ReturnWaits : Owner has resolved\nall issues
+
+ReturnConfirmed -> BookingClosed : Owner closes\nthe booking
+
+BookingClosed ->[*]
+@enduml
