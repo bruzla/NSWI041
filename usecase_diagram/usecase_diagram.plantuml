@@ -46,7 +46,7 @@ carDetail .up.> newOffersNotification : <<extend>>
 bookingConfirmation ....> bookingSelectedCar : <<include>>
 
 
-actor "Car owner" as carOwner
+actor "Lender" as carOwner
 ' Relationships for Admin
 carOwner --> finishBooking
 carOwner --> vehicleListing
