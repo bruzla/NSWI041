@@ -1,0 +1,35 @@
+@startuml
+
+[*] --> BrowsingSearchResults : User logs in and searches
+
+state "Browsing Search Results" as BrowsingSearchResults
+state "Viewing Car Details" as ViewingCarDetails {
+    state "Basic Info View" as BasicInfoView
+    state "Reading Reviews" as ReadingReviews
+    state "Checking Availability" as CheckingAvailability
+    state "Reading Terms" as ReadingTerms
+
+    [*] --> BasicInfoView
+    BasicInfoView --> ReadingReviews
+    BasicInfoView --> CheckingAvailability
+    BasicInfoView --> ReadingTerms
+    ReadingReviews --> BasicInfoView
+    CheckingAvailability --> BasicInfoView
+    ReadingTerms --> BasicInfoView
+}
+state "Messaging Owner" as MessagingOwner
+state "Booking Car" as BookingCar
+state "Viewing Favorites" as ViewingFavorites
+
+BrowsingSearchResults --> ViewingCarDetails : User selects car
+ViewingCarDetails --> MessagingOwner : User messages owner
+ViewingCarDetails --> BookingCar : User proceeds to book
+ViewingCarDetails --> BrowsingSearchResults : User returns to search
+ViewingCarDetails --> ViewingFavorites : User saves to favorites
+
+MessagingOwner --> ViewingCarDetails : User returns to car details
+BookingCar --> [*] : User completes booking
+ViewingFavorites --> ViewingCarDetails : User selects car from favorites
+BrowsingSearchResults --> [*] : User exits system
+
+@enduml

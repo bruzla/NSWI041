@@ -1,0 +1,32 @@
+@startuml
+
+start
+:User Browses Search Results;
+:User Selects a Car Listing;
+:System Displays Car Details Page;
+
+:User Views Vehicle Information;
+:User Reviews Specifications & Features;
+:User Checks Rental Rates;
+:User Examines Availability Calendar;
+:User Views Pickup/Return Location;
+:User Reviews Usage Terms;
+:User Checks Owner Profile & Rating;
+:User Reads Previous Reviews;
+
+if (User wants to proceed?) then (Yes)
+    if (User has questions?) then (Yes)
+        :User Messages Owner;
+    else (No)
+        :User Proceeds to Book Car;
+    endif
+else (No)
+    if (User wants to save for later?) then (Yes)
+        :User Saves Listing to Favorites;
+    else (No)
+        :User Returns to Search Results;
+    endif
+endif
+
+stop
+@enduml

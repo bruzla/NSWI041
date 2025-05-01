@@ -1,0 +1,64 @@
+@startsalt
+{
+  {+ "Car Details - Fiat Multipla (2005)"
+    {
+      {
+        {
+          "Vehicle Photos:"
+          [Photo 1] [Photo 2] [Photo 3]
+        }
+        --
+        {
+          "Vehicle Information:"
+          Model: | "Fiat Multipla"
+          Year: | "2005"
+          Seating: | "6 passengers"
+          Fuel: | "Diesel"
+        }
+        --
+        {
+          "Rental Rates:"
+          Hourly: | "€15/hour"
+          Daily: | "€89/day"
+          Weekly: | "€500/week"
+        }
+        --
+        {
+          "Availability Calendar:"
+          "April 2025"
+          "Su Mo Tu We Th Fr Sa"
+          "       01 02 03 04 05"
+          "06 07 08 09 10 11 12"
+        }
+        --
+        {
+          "Pickup Location:"
+          "123 Electric Avenue, Berlin"
+        }
+        --
+        {
+          "Owner Profile:"
+          "Mark Smith" | "★★★★☆ (4.8/5)"
+        }
+        --
+        {
+          "Reviews:"
+          "Sarah K.: The best car I've ever driven. Spacious and good looking too."
+          "John D.: Car was fantastic. Great fuel economy."
+          "Evan B.: Great car. Wife didn't like it though, she said it attracts too much attention."
+        }
+        --
+        {
+          "Terms & Restrictions:"
+          "• No smoking allowed in vehicle"
+          "• Must be returned with at least 25% fuel"
+        }
+        --
+        {
+          [Book Now] | [Message Owner] | [Save to Favorites] | [Back to Search]
+        }
+      }
+    }
+  }
+}
+@endsalt
