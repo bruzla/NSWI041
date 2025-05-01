@@ -5,6 +5,7 @@ start
 
 : Borrower opens booking;
 : Borrower selects "Return Vehicle";
+: System shows "Return vehicle pop-up;
 
 if (Create and send data about the car?) then (yes)
  : Borrower creates car data;
