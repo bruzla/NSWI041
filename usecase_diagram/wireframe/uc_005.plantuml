@@ -1,0 +1,86 @@
+@startuml
+
+(*) --> "
+{{
+    salt
+    {SI
+        **Bookings**
+        {#
+            Car 1 | 14. 2. - 15. 2. | unconfirmed | [process booking request]
+            Car 2 | 20. 2. - 21. 2. | unconfirmed | [process booking request]
+            Car 2 | 11. 2. - 13. 2. | rejected |  .
+            Car 1 | 11. 2. - 13. 2. | active | .
+        }
+    }
+}}
+" as bookings
+
+-->[ user clicked on "process booking request" ] "
+{{
+    salt
+    {
+        **Booking request from John Doe **
+        {
+                {#
+                    Car 1 | from 14. 2. and 15. 2.
+                    John Doe | //photo of John doe//
+                    21 years //                                      // | driving experience: 10 years
+                } | *
+                { //   // }
+                {#
+                    **Reviews**
+                    {-
+                        Average rating: 2.5/5 | ^Filter reviews by rating^
+                        {
+                            5/5 |  . | from Bobby Tables
+                            John Doe is a perfect driver | * | *
+                        } | *
+                        {
+                            1/5 |  . | from Alice
+                            John Doe stole my car | * | *
+                        } | *
+                        {
+                            3/5 | . | from Bob
+                            He crashed with my car, but it wasn't his fault. | * | *
+                        } | *
+                        {
+                            1/5 | . | from Jimmy
+                            John Doe stole my car | * | *
+                        } | *
+                        {
+                            1/5 | . | from Teddy
+                            John returned the car dirty and full of trash | * | *
+                        } | *
+                        [Load more reviews] | *
+                    }
+                } | *
+
+                { //   // }
+
+                [Reject] | [Accept]
+        }
+    }
+}}
+" as bookingConfirmation
+
+bookingConfirmation -->[booking accepted] "
+{{
+    salt
+    {
+        **Booking from John  Doe was accepted**
+    }
+}}
+"
+
+
+bookingConfirmation -->[booking rejected] "
+{{
+    salt
+    {
+        **Booking from John Doe was rejected**
+        John was notified about rejection and his payment was refunded.
+    }
+}}
+"
+
+@enduml

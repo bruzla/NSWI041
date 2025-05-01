@@ -1,0 +1,27 @@
+@startuml
+[*] --> viewingAll
+hide empty description
+
+state "Viewing all bookings" as viewingAll
+
+state "Evaluating booking request" as bookingRequest {
+ state "Viewing borrowers profile" as viewingProfile
+ state "Reading borrowers reviews" as borrowerReviews
+ [*] --> viewingProfile
+ viewingProfile --> borrowerReviews : borrowers profile viewed
+ borrowerReviews --> borrowerReviews : more reviews requested or type of reviews restricted
+}
+
+viewingAll --> bookingRequest : selected unconfirmed booking
+
+state "Rejecting booking request" as reject
+state "Accepting booking request" as accept
+
+bookingRequest --> reject : borrower is not trustworthy
+bookingRequest --> accept : borrower is trustworthy
+
+reject --> [*] : booking request processed
+accept --> [*] : booking request processed
+
+
+@enduml

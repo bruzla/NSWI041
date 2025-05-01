@@ -1,0 +1,34 @@
+@startuml
+start
+
+:User navigates to "bookings";
+:System displays all active bookings linked to his cars;
+:User selects one of the unconfirmed bookings;
+:System displays information about the booking and the person who made it;
+:User reviews displayed information;
+
+repeat
+if (User wants to see only reviews with specific amount of stars?) then (yes);
+    :System loads next 5 reviews with selected amount of stars;
+else (no)
+    :System loads next 5 reviews;
+endif
+:User reads loaded reviews;
+repeat while (User wants see more reviews?) is (yes and there are more reviews to show)
+->no;
+
+:User forms opinion about potential borrower;
+
+if (Does the user trust the borrower?) then (yes);
+  :User clicks on "accept" button;
+  :System marks the booking as accepted and send notification to the borrower;
+  stop
+else (no)
+  :User clicks on "reject" button;
+  :System notifies the borrower about rejected booking;
+  :System refunds payment to the borrower;
+  :System marks the car as available in the timeslots previously booked by the borrower;
+  stop
+endif
+
+@enduml
