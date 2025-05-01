@@ -14,11 +14,11 @@ state "Resolving issues" as ResolvingIssues
 ReturnInitialization -> CarDataUpload : Borrower decides\nto upload data
 CarDataUpload -> ReturnWaits : Borrower confirmes\nthe return
 ReturnInitialization -> ReturnWaits : Borrower confirmes\nthe return
-ReturnWaits -d-> ReturnConfirmed : Owner confirmes\nthe return
-ReturnWaits -> ResolvingIssues : Owner denies\nthe return
-ResolvingIssues -> ReturnWaits : Owner has resolved\nall issues
+ReturnWaits -d-> ReturnConfirmed : Lender confirmes\nthe return
+ReturnWaits -> ResolvingIssues : Lender denies\nthe return
+ResolvingIssues -> ReturnWaits : Lender has resolved\nall issues
 
-ReturnConfirmed -> BookingClosed : Owner closes\nthe booking
+ReturnConfirmed -> BookingClosed : Lender closes\nthe booking
 
 BookingClosed ->[*]
 @enduml
