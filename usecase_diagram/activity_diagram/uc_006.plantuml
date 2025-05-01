@@ -1,0 +1,29 @@
+@startuml
+title Activity Diagram: Automatic Insurance Inclusion
+
+start
+
+:Borrower initiates reservation;
+:Platform adds standard insurance;
+:Display coverage details;
+
+if ("Does borrower accept terms?") then (Yes)
+  :Borrower accepts mandatory terms;
+
+  if ("Wants supplementary insurance?") then (Yes)
+    :Show extra coverage options;
+    :Borrower selects additional insurance;
+    :Update price and policy;
+  else (No)
+    :Skip extra options;
+  endif
+
+  :Finalize insurance;
+  :Continue reservation;
+  stop
+else (No)
+  :Show error - Insurance required;
+  :Return to review screen;
+
+endif
+@enduml

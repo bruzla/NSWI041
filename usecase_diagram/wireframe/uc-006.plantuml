@@ -1,0 +1,54 @@
+@startsalt
+{
+{^"1. Standard Insurance Included"
+===
+notice "Standard insurance has been automatically included"
+^Coverage details^
+• Liability protection  
+• $15/day basic coverage  
+[ Continue to Review ]
+}
+
+{^"2. Review Insurance (Decision Point)"
+===
+[X] I accept the mandatory insurance terms
+
+---
+Additional Options:
+[ ] Collision Waiver (+$10/day)  
+[ ] Theft Protection (+$8/day)  
+
+[ Continue ]
+}
+
+{^"3. Insurance Declined"
+===
+error "Insurance is required to continue"
+You must accept the insurance terms.
+
+[ Back to Review ]
+}
+
+{^"4. Insurance Summary (Accepted + Extras)"
+===
+✓ Standard Insurance  
+✓ Collision Waiver  
+✓ Theft Protection  
+
+Total: $69 (3 days)
+
+[ Confirm and Continue ]
+}
+
+{^"5. Insurance Finalized"
+===
+Insurance will be activated after payment confirmation and booking completion.
+
+Details will be automatically sent to both the borrower and the lender.
+
+Coverage will apply for the full rental period.
+
+[ Continue ]
+}
+}
+@endsalt

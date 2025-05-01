@@ -1,0 +1,33 @@
+@startuml
+title State Diagram: Automatic Insurance Inclusion 
+
+[*] --> ReservationInitiated : Start reservation
+
+ReservationInitiated --> StandardInsuranceIncluded : Proceed to Insurance
+
+StandardInsuranceIncluded --> ReviewingInsurance : View coverage details
+
+ReviewingInsurance --> InsuranceDeclined : Declines mandatory terms
+ReviewingInsurance --> InsuranceAccepted : Accepts mandatory terms
+
+InsuranceDeclined --> ReviewingInsurance : Back to Review
+
+InsuranceAccepted --> SupplementaryInsuranceSelected : Chooses extra options
+InsuranceAccepted --> InsuranceFinalized : Skips extra options
+
+SupplementaryInsuranceSelected --> InsuranceFinalized : Confirm coverage
+
+InsuranceFinalized --> ContinueParentUC : Continue to Reservation Use Case
+
+ContinueParentUC --> [*]
+
+state ReservationInitiated as "1. Reservation Initiated"
+state StandardInsuranceIncluded as "2. Standard Insurance Auto-Added"
+state ReviewingInsurance as "3. Review Insurance (Decision Point)"
+state InsuranceDeclined as "4a. Insurance Declined Path"
+state InsuranceAccepted as "4b. Insurance Accepted Path"
+state SupplementaryInsuranceSelected as "4b-a. Extra Coverage Chosen"
+state InsuranceFinalized as "5. Final Activation - Insurance Ready"
+state ContinueParentUC as "6. Continue to Parent Use Case"
+
+@enduml
