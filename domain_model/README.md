@@ -5,8 +5,6 @@
 ### User
 A base class for all system users.
 
-
-
 ### Lender
 A specialized user who offers vehicles for rent.
 
@@ -51,3 +49,8 @@ Defines restrictions for vehicle usage.
 
 ### Availability Schedule
 Specifies when a vehicle is available for booking.
+
+### Photo
+Photo of a vehicle or in general of anything which is related to the app. Can be made by [the user](#user).
+
+
